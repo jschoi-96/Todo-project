@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/TodoList/Header';
+import TodoList from './components/TodoList/TodoList';
+import { useState } from 'react';
+import { DarkModeProvider } from './context/DarkModeContext';
 
+const filters = ['all' , 'active' , 'completed'];
 function App() {
+  const [filter, setFilter] = useState(filters[0]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DarkModeProvider>
+      <Header 
+        filters={filters} 
+        filter={filter} 
+        onFilterChange = {(filter) => setFilter(filter)}
+      />
+      <TodoList filter={filter}/>
+    </DarkModeProvider>
   );
 }
 
