@@ -2,6 +2,8 @@
 
 A simple Todo Application made up with React.js
 
+### Link: https://junsoo-todoapp.netlify.app/
+
 ## Available Scripts
 
 In the project directory, you can run:
